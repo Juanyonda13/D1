@@ -1,13 +1,13 @@
 <?php
+
 namespace Database\Seeders;
 
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-
-class UsersTableSeeder extends Seeder
+use DB;
+use Hash;
+use App\Models\User;
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        //
+        User::create([
             'name' => 'Admin Admin',
             'email' => 'admin@material.com',
             'email_verified_at' => now(),
@@ -24,5 +25,6 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ])->assignRole('admin');
+
     }
 }
